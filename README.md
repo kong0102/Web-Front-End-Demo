@@ -6,6 +6,10 @@
   
 <a href='https://kong0102.github.io/Web-Front-End-Demo/点击效果-JavaScript.html'>Demo</a>
 
+### 图片自动轮播 -JavaScript    
+
+<a href='https://kong0102.github.io/Web-Front-End-Demo/图片自动轮播/图片自动轮播.html'>Demo</a>
+
 ### 菜单效果 -CSS3  
 
 <a href='https://kong0102.github.io/Web-Front-End-Demo/菜单效果/菜单效果-CSS.html'>Demo<a/>  
