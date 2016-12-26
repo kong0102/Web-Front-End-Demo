@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<style type="text/css">
+	
+a:hover,a:focus{
+	text-decoration: none;
+	outline: none;
+}
+
+.panel{
+	border: none;
+	margin-top: 0 !important;	
+}
+.panel-heading{
+	padding: 0;
+	border: none;
+	text-align: center;
+}
+.panel-title a{
+	display: block;
+	padding: 20px 0;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+	background-color: #003366;
+	border-bottom: 1px solid #336699;
+	position: relative;
+	-webkit-transition:0.6s;
+	transition: 0.6s;
+
+}
+
+.panel-title a:hover{
+	background: #336699;
+	-webkit-transition:0.6s;
+	transition: 0.6s;
+
+}
+.panel-title a .glyphicon{
+	font-size:20px;
+	position: absolute;
+	top: 20px;
+	left: 30px;	
+	-webkit-transition: 0.9s;
+	transition: 0.9s;
+}
+.panel-title .collapsed .glyphicon{
+    -webkit-transform:rotate(-135deg);
+	transform: rotate(-135deg);
+}
+.panel-body{
+	background-color: #ABCDEF;
+	padding: 0 0 20px 40px;
+	border: none !important;
+}
+.panel-body p{
+	font-size: 15px;
+	color: #fff;
+	background: #0099CC;
+	padding: 20px;
+	margin: 0;
+}
+.panel-collapse .panel-body p{
+	opacity: 0;
+	transform: scale(0.8);
+	transition: 0.4s ;
+}
+.panel-collapse.in .panel-body p{
+	opacity: 1;
+	transform: scale(1);
+}
+
+	</style>
+ </head>
+<body>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8">
+			
+<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" ><span class='glyphicon glyphicon-chevron-down'></span>
+          Group Item 1
+        </a>
+      </h4>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        <p>段落1</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingTwo">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"><span class='glyphicon glyphicon-chevron-down'></span>
+          Group Item 2
+        </a>
+      </h4>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+      <div class="panel-body">
+        <p>段落2</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingThree">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"><span class='glyphicon glyphicon-chevron-down'></span>
+          Group Item 3
+        </a>
+      </h4>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+      <div class="panel-body">
+        <p>段落3</p>
+      </div>
+    </div>
+  </div>
+  
+   <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingFour">
+      <h4 class="panel-title">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour"><span class='glyphicon glyphicon-chevron-down'></span>
+          Group Item 4
+        </a>
+      </h4>
+    </div>
+    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+      <div class="panel-body">
+        <p>段落4</p>
+      </div>
+    </div>
+  </div>
+  
+</div>
+								
+		</div>
+	</div>
+</div>
+
+<script src="js/jquery.js" type="text/javascript"></script>
+<script src="js/bootstrap.js"></script>
+
+
+</body>
+</html>

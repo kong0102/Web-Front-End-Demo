@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.css" rel="stylesheet">  
+	<style type="text/css">
+ul {
+    padding:0;
+    list-style:none;
+	margin-left:10px;
+    position:relative
+}
+.tree ul:before {
+    content:"";
+	position:absolute;
+    display:block; 
+	width:0;
+    top:0;
+    left:0;
+    border-left:2px solid grey;
+    bottom:18px;
+}
+.tree ul li:before {
+    content:"";
+	position:absolute;
+    display:block;
+    width:8px;
+    height:0;
+	top:12px;
+    left:0;
+    border-top:2px solid grey;
+}
+.tree li {
+    margin:0;
+    padding:0 15px;
+    line-height: 30px;
+    font-weight:bold;
+    position:relative
+}
+
+.glyphicon{
+    cursor:pointer;
+	margin-left:3px;
+	margin-right:5px;
+}
+.glyphicon:hover,.glyphicon-chevron-down{
+	color:rgb(120,120,120);
+}
+.tree li a {  
+    cursor:pointer;
+	text-decoration: none;
+}
+.m {  
+    color:rgb(0,0,128);
+}
+.m1 {  
+    color:rgb(100,149,237);
+}
+.m2 {  
+    color:rgb(106,90,205);
+}
+.m3 {  
+    color:rgb(95,158,160);
+}
+.m4 {  
+    color:rgb(135,206,235);
+}
+
+</style>
+  </head>
+  <body>
+  <div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading">树形目录</div>
+        <div class="panel-body">
+
+            <ul class="tree">
+                <li><span class='glyphicon glyphicon-chevron-right'></span><a class='m'>目录</a>
+                	<ul>
+            			<li><a class='m1'>次级目录1</a></li>
+            			<li><span class='glyphicon glyphicon-chevron-right'></span><a class='m1'>次级目录1</a>
+            				<ul>
+            					<li><a class='m2'>次级目录2</a></li>
+            					<li><span class='glyphicon glyphicon-chevron-right'></span><a class='m2'>次级目录2</a>
+            						<ul>
+            							<li><a class='m3'>次级目录3</a></li>
+            							<li><span class='glyphicon glyphicon-chevron-right'></span><a class='m3'>次级目录3</a>
+            								<ul>
+            									<li><a class='m4'>次级目录4</a></li>
+            									<li><a class='m4'>次级目录4</a></li>
+            									<li><a class='m4'>次级目录4</a></li>
+            								</ul>
+            							</li>
+            							<li><a class='m3'>次级目录3</a></li>
+            						</ul>
+            					</li>
+            					<li><a class='m2'>次级目录2</a></li>
+								<li><a class='m2'>次级目录2</a></li>
+            				</ul>
+						</li>
+            			<li><a class='m1'>次级目录1</a></li>
+            		</ul>
+            	</li>
+            </ul>  
+        </div>			
+    </div>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+
+ <script>
+$.fn.extend({
+	treeList:	function() {
+		return this.each(function() {
+		
+			var tree = $(this);	
+			
+			tree.find('li').has("ul").each(function () {
+
+				$(this).children('ul').children('li').toggle();
+
+				$(this).children('.glyphicon').click(function (e) {				
+						$(this).toggleClass("glyphicon-chevron-down glyphicon-chevron-right");
+						$(this).siblings('ul').children('li').toggle();
+
+				})
+				
+				$(this).children('a').click(function (e) {
+				        e.preventDefault();
+						$(this).siblings('span').toggleClass("glyphicon-chevron-down glyphicon-chevron-right");
+						$(this).siblings('ul').children('li').toggle();
+
+				})	
+			});
+		});
+	}
+});
+
+
+$(document).ready( function () {
+	$('.tree').treeList();
+}) 
+ </script>
+  </body>
+</html>
