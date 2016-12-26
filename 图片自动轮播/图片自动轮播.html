@@ -1,0 +1,174 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1"/>
+ <meta charset="utf-8" />
+ <style>
+html body{
+  background: 
+  -webkit-linear-gradient(left ,#999999,#666666,#333333,#666666,#999999); 
+  linear-gradient(left ,#999999,#666666,#333333,#666666,#999999); 
+}
+
+.slider{
+ width :500px;
+ height :281px;
+ position: relative;
+ left:50%;
+ margin:6% -250px 0 -250px;
+ border:1px solid #666666;
+ overflow:hidden;
+ border-radius:2%;
+ box-shadow:0 8px 10px #888888;
+ -webkit-transition:0.8s;
+ transition:0.8s;
+}
+
+.slider .img img {
+ width :100%;
+ position: absolute;
+ top:0;
+ left:0;
+ right:0;
+ bottom:0;
+ opacity:0;
+ border-radius:2%;
+ -webkit-transition:0.8s;
+ transition:0.8s;
+}
+
+.slider .img.active img{
+ width :100%;
+ position: absolute;
+ top:0;
+ left:0;
+ right:0;
+ bottom:0;
+
+ opacity:1;
+}
+.gallery{
+ width:100%
+ margin:0 auto;
+ padding:2%;
+ text-align:center;
+}
+
+.gallery img{
+ display:inline;
+ width :10%;
+ overflow:hidden;
+ margin:10px;
+ box-shadow:0 2px 4px #888888;
+ border-radius:4%;
+ -webkit-transition:0.8s;
+ transition:0.8s;
+ opacity:0.5;
+}
+
+ .slider:hover,.gallery img:hover,.index.active{
+ -webkit-transform:scale(1.1);
+ transform:scale(1.1);
+ cursor:pointer;
+ -webkit-transition:0.8s;
+ transition:0.8s;
+ box-shadow:none;
+ opacity:1;
+}
+ </style>
+</head>   
+<body>
+
+  <div class="slider" >
+		<div class="img active">
+			<img src="images/1.jpg">
+		</div>
+		
+		<div class="img">
+			<img src="images/2.jpg">
+		</div>
+
+        <div class="img">
+			<img src="images/3.jpg">
+		</div>
+
+        <div class="img">
+			<img src="images/4.jpg">
+		</div>
+		
+		<div class="img">
+			<img src="images/5.jpg">
+		</div>
+	</div>
+
+	<div class="gallery">	
+			<img class="index active" src="images/1.jpg" >	
+			<img class="index" src="images/2.jpg" > 
+			<img class="index" src="images/3.jpg" >
+			<img class="index" src="images/4.jpg" >
+			<img class="index" src="images/5.jpg" >
+	</div>
+
+<script >
+var nImg = 5;
+var num = 1;
+var speed = 2000;
+
+var img = document.getElementsByClassName('img');
+var gallery= document.getElementsByClassName('gallery');
+var index= document.getElementsByClassName('index');
+
+function change() {
+
+  num = num % nImg;
+  for (var i = 0; i < nImg; i++) {
+		if(i == num){
+			img[i].className = 'img active';
+			index[i].className = 'index active';
+		}
+		else{
+			img[i].className = 'img';
+			index[i].className = 'index';
+		}	
+    }
+  num = num + 1;
+}
+
+var myTP = setInterval(change, speed);
+
+for (var i = 0; i < nImg; i++) {
+
+    img[i].onmouseover = function() {
+		clearInterval(myTP)
+	}
+	
+	index[i].onmouseover = function(e) {
+	
+		clearInterval(myTP);	
+		var imgTarget = e.target;
+	
+		for (var j = 0; j < nImg; j++) {
+			if(index[j] == imgTarget){
+			    num = j+1;
+				img[j].className = 'img active';
+				index[j].className = 'index active';
+			}
+			else{
+				img[j].className = 'img';
+				index[j].className = 'index';
+			}		
+		}
+	}
+	
+	index[i].onmouseout = function() {
+		myTP = setInterval(change, speed);
+	}
+	
+	img[i].onmouseout = function() {
+		myTP = setInterval(change, speed);
+	}
+}
+
+</script>
+</body>
+</html>
