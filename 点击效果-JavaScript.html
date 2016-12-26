@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1"/>
+ <meta charset="utf-8" />
+ <style>
+		div {
+		font-size:20px;
+		font-weight: bold;
+		text-align:center
+		}
+		canvas{
+		cursor:pointer;
+		}
+    </style>
+</head>   
+<body> 
+<div>
+ <p>鼠标点击动画</p>
+ <canvas></canvas>
+</div>
+<script >
+//By KongZheng
+var canvas = document.getElementsByTagName('canvas')[0];
+var context = canvas.getContext('2d');
+
+canvas.width = document.documentElement.clientWidth*0.8;
+canvas.height = document.documentElement.clientHeight*0.8;
+
+var mouse = {
+	x: canvas.width / 2,
+	y: canvas.height / 2,
+};
+
+var circles = new Array();
+var colors = new Array('#33cc66', '#207178', '#330066', '#ff3333','#ff9933','660066','#DB7093','#BFBFBF');
+
+window.addEventListener("resize", function () {
+    canvas.width = document.documentElement.clientWidth*0.8;
+    canvas.height = document.documentElement.clientHeight*0.8;
+});
+
+window.addEventListener("click", function (e) {
+    mouse.x = e.clientX;
+	mouse.y = e.clientY
+    createCircles(50);
+},false);
+
+canvas.addEventListener("touchstart", function () {
+   createCircles(50);
+},false);
+ 
+function createCircles(n) {
+	for (var i = 0; i < n; i++) {
+		var radius = Math.random()*Math.min(canvas.width,canvas.height)*(0.08+0.02);;
+		var color = colors[parseInt(Math.random()*colors.length)];
+		circles.push(new Circle(mouse.x, mouse.y, radius, color));
+	}
+}
+
+function Circle(x, y, radius, color) {
+	this.x = x;
+	this.y = y;
+	this.radius = radius;
+	this.color = color;
+	this.speed	= {
+		x: (Math.random()-0.5)*20,
+		y: (Math.random()-0.5)*20
+	};
+	
+	this.draw = function () {
+	    context.globalAlpha = 0.6;
+	    context.lineWidth = 6;
+		context.beginPath();
+		context.arc(this.x-1/8*canvas.width, this.y-1/8*canvas.height, this.radius, 0, Math.PI*2, false);
+		context.strokeStyle = this.color;
+		context.stroke();
+		context.closePath();
+	};
+	
+	this.update = function () {
+		this.x += this.speed.x;
+		this.y += this.speed.y;
+		this.draw();
+	};
+}
+
+function animate() {
+    context.fillStyle = "#FFF8DC";
+    context.fillRect(0, 0, canvas.width, canvas.height);
+   
+	window.requestAnimationFrame(animate);
+
+	for (var i = 0; i < circles.length; i++) {
+	    
+		circles[i].update();
+	}
+}
+window.onload = function(){
+  createCircles(15);
+  return;
+}
+animate();
+</script>
+</body>
+</html>

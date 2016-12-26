@@ -1,0 +1,62 @@
+.loading-rec {
+  width: 100px;
+  height: 80px;
+  position: absolute;
+  right:20%;
+  top:50%;
+}
+.loading-rec .rec {
+  width: 20%;
+  height: 100%;
+  position: relative;
+  float:left;
+  background-color:#FFF;
+  -webkit-animation: recAngle 8s infinite ease-in-out ;
+  animation: recAngle 8s infinite ease-in-out ;
+}
+.loading-rec .rec1 {
+  -webkit-animation-delay:0.4s ;
+  animation-delay: 0.4s;
+}
+.loading-rec .rec2 {
+  -webkit-animation-delay:0.8s ;
+  animation-delay: 0.8s;
+}
+.loading-rec .rec3 {
+  -webkit-animation-delay:1.2s ;
+  animation-delay: 1.2s;
+}
+.loading-rec .rec4 {
+  -webkit-animation-delay:-.6s ;
+  animation-delay: 1.6s;
+}
+.loading-rec .rec5 {
+  -webkit-animation-delay:2s ;
+  animation-delay: 2s;
+}
+
+@-webkit-keyframes recAngle {
+  0%,100% {
+    -webkit-transform: perspective(150px);
+	transform: perspective(150px) ;
+    opacity: 1; 
+	}
+  50% {
+    -webkit-transform: perspective(150px) rotateY(180deg);
+	transform: perspective(150px) ;
+    opacity: 0; 
+	} 	
+}
+
+@keyframes recAngle {
+  0%,100% {
+	-webkit-transform: perspective(150px);
+    transform: perspective(150px) ;
+    opacity: 1; 
+	}
+  50% {
+	-webkit-transform: perspective(150px) rotateY(180deg);
+    transform: perspective(150px) rotateY(180deg);
+    opacity: 0; 
+	} 	
+}

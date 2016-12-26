@@ -1,0 +1,74 @@
+
+.loading-circle2 {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  right:40%;
+  top:50%;
+}
+
+.loading-circle2 .circle {
+  position: absolute;
+  left:35%;
+  top:0;
+  width: 30%;
+  height: 100%;
+  background-color: #FFF;
+  border-radius: 100%;
+  -webkit-animation: circleFade 1.2s infinite ease-in-out ;
+  animation: circleFade 1.2s infinite ease-in-out ;
+}
+
+.loading-circle2 .circle2 {
+  -webkit-transform: rotate(30deg);
+  transform: rotate(30deg);
+  -webkit-animation-delay: -1s;
+  animation-delay: -1s;
+}
+
+.loading-circle2 .circle3 {
+  -webkit-transform: rotate(60deg);
+  transform: rotate(60deg);
+ -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+}
+
+.loading-circle2 .circle4 {
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-animation-delay: -0.6s;
+  animation-delay: -0.6s;
+}
+
+.loading-circle2 .circle5 {
+  -webkit-transform: rotate(120deg);
+  transform: rotate(120deg);
+  -webkit-animation-delay: -0.4s;
+  animation-delay: -0.4s;
+}
+
+.loading-circle2 .circle6 {
+  -webkit-transform: rotate(150deg);
+  transform: rotate(150deg);
+  -webkit-animation-delay: -0.2s;
+  animation-delay: -0.2s;
+}
+
+
+@-webkit-keyframes circleFade {
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes circleFade {
+  0% {
+    opacity: 0.2;
+  }
+  120% {
+    opacity: 1;
+  }
+}
